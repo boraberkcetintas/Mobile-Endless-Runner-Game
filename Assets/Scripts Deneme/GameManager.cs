@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager: MonoBehaviour
 {
     #region
     private static GameManager instance;
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour
             case State.Win:
                 break;
             default:
-                Debug.Log("GameState deðiþiminde hata!");
+                Debug.Log("GameState deÄŸiÅŸiminde hata!");
                 break;
         }
     }
