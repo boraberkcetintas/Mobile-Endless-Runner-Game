@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.019
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
       propertyPath: m_LocalPosition.z
@@ -174,9 +174,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -4128383740851021839, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4128383740851021839, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -4128383740851021839, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4128383740851021839, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
       propertyPath: m_Name
       value: Stickman
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622753384463669962, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.004949808
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622753384463669962, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.1806694
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622753384463669962, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622753384463669962, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.98470604
+      objectReference: {fileID: 0}
+    - target: {fileID: 2622753384463669962, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.79322755
       objectReference: {fileID: 0}
     - target: {fileID: 2622753384463669962, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -186,6 +222,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3f5b33f56f7868a48830a5d4768ee438, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25840c16ebff99d49a116e2d86a5e302, type: 3}
 --- !u!4 &458120941 stripped
