@@ -2650,7 +2650,7 @@ MonoBehaviour:
   - {fileID: 1774302523615988240, guid: e638c89077d335d4d8a21664df12aa7d, type: 3}
   zSpawn: 2.5
   tileLength: 6
-  numberOfTiles: 7
+  numberOfTiles: 10
   playerTransform: {fileID: 46441285}
 --- !u!4 &1666608023
 Transform:

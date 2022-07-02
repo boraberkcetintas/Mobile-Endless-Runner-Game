@@ -12,7 +12,10 @@ public class GManager : MonoBehaviour
     public PlayerController playerScript;
     public AudioSource audioSource;
     public AudioClip deadSFX;
-    public Text bestScore;
+    public AudioClip newBestScoreSFX;
+    public Text bestScoreText;
+    public GameObject bestScore;
+    public GameObject bestScoreCup;
     void Start()
     {
         UpdateGameState(GameState.WaitToTap);
@@ -55,11 +58,17 @@ public class GManager : MonoBehaviour
                 if(playerScript.score > int.Parse(PlayerPrefs.GetString("Best Score", "0"))) // Eğer score Best skordan büyükse o anki skoru yeni best skor yapıyor.
                 {                                                                            // PlayerPrefs.GetString değeri çekiyor ve int.Parse string değerini int hale getiriyor.
                     PlayerPrefs.SetString("Best Score", playerScript.score.ToString());     // int hale gelen best skor değeri ile > operatörünü kullanıyoruz.
+                    bestScore.gameObject.GetComponent<Animator>().enabled = true;
+                    bestScoreText.text = "New Best " + PlayerPrefs.GetString("Best Score") + " M";
+                    audioSource.PlayOneShot(newBestScoreSFX);
+                }
+                else
+                {
+                    audioSource.PlayOneShot(deadSFX);
+                    bestScoreText.text = "Best " + PlayerPrefs.GetString("Best Score") + " M"; // Game Over ekranındaki best score yazısını değiştiriyor.
+                    bestScore.gameObject.GetComponent<Animator>().enabled = false;
                 }
                 
-                audioSource.PlayOneShot(deadSFX);
-               
-                bestScore.text = "Best " + PlayerPrefs.GetString("Best Score") + " M"; // Game Over ekranındaki best score yazısını değiştiriyor.
                 break;
 
             case GameState.Win: //Win yok
