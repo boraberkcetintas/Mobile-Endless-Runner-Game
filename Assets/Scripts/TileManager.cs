@@ -10,6 +10,9 @@ public class TileManager : MonoBehaviour
     public int numberOfTiles = 12;
     private List<GameObject> activeTiles = new List<GameObject>(); 
     public Transform playerTransform;
+    private int oldTileIndex = 0;
+    private int newTileIndex;
+
     void Start()
     {
         SpawnTile(0);
@@ -17,7 +20,7 @@ public class TileManager : MonoBehaviour
 
         for(int i = 0; i < numberOfTiles; i++)
         {
-            SpawnTile(Random.Range(0, tilePrefabs.Length));
+            SpawnTile(RandomTileIndex());
         }
     }
 
@@ -25,7 +28,7 @@ public class TileManager : MonoBehaviour
     {
         if (playerTransform.position.z - 7 > zSpawn - ((numberOfTiles) * tileLength))
         {
-            SpawnTile(Random.Range(0, tilePrefabs.Length));
+            SpawnTile(RandomTileIndex());
             DeleteTile();
         }
     }
@@ -41,5 +44,17 @@ public class TileManager : MonoBehaviour
     {
         Destroy(activeTiles[0]);
         activeTiles.RemoveAt(0);
+    }
+
+    int RandomTileIndex()
+    {
+        newTileIndex = Random.Range(0, tilePrefabs.Length);
+
+        if(newTileIndex == oldTileIndex)
+        {
+            RandomTileIndex();
+        }
+       oldTileIndex = newTileIndex;
+       return newTileIndex;
     }
 }

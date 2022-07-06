@@ -28,9 +28,12 @@ public class PlayerController : MonoBehaviour
         {
             Move();
             score = Mathf.Round(transform.position.z);
-            scoreText.text = string.Format("{0} M", score); //float score değerini sonuna M ekleyerek string hale çeviriyor.
             inGameScoreText.text = string.Format("{0} M", score);
-        };
+        }
+        else if (gManagerScript.state == GManager.GameState.Dead)
+        {
+            scoreText.text = string.Format("{0} M", score); //float score değerini sonuna M ekleyerek string hale çeviriyor.
+        }
     }
 
     void Move() // VerticalMove() ve HorizontalMove() çalıştır.
