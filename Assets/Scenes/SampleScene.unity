@@ -157,6 +157,7 @@ MonoBehaviour:
   scoreText: {fileID: 2034467464}
   score: 0
   inGameScoreText: {fileID: 1345944976}
+  slopeY: 20
   ragdollgo:
   - {fileID: 1596738434}
   - {fileID: 2109866694}

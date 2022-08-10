@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     public float score;
     public Text inGameScoreText;
     private bool isHitToObstacle = false;
+    public float slopeY;
+    private float desiredRot;
 
     private void Start()
     {
@@ -36,16 +38,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     void Move() // VerticalMove() ve HorizontalMove() çalıştır.
     {
         VerticalMove();
         HorizontalMove();
+        RotationalMove();
     }
 
     void VerticalMove()
     {
         // Karakteri zamana bağlı şekilde +z doğrusunda ilerlet.
-        transform.Translate(Vector3.forward.normalized * speedV * Time.deltaTime);
+        transform.Translate(Vector3.forward.normalized * speedV * Time.deltaTime, Space.World);
     }
 
     void HorizontalMove()
@@ -56,6 +60,7 @@ public class PlayerController : MonoBehaviour
         // Karakter platform sınırları içerisindeyse haraket etsin.
         if (transform.localPosition.x <= 2f && transform.localPosition.x >= -2f)
         {
+            //Karakterin konumunu güncelleme
             transform.position += vectorHorizontal;
         }
 
@@ -70,6 +75,26 @@ public class PlayerController : MonoBehaviour
         if (transform.position.x < -2f)
         {
             transform.localPosition = new Vector3(-2f, transform.localPosition.y, transform.localPosition.z);
+        }
+    }
+
+    void RotationalMove()
+    {
+        //transform.rotation = Quaternion.Euler(0, dynamicJoystick.Horizontal * slopeY, 0); // Karakterin dönme fonksiyonu basit ve daha az smooth
+
+
+        //Karakterin sağ/sola giderken dönme fonksiyonu
+        if (dynamicJoystick.Horizontal > 0)
+        {
+            transform.rotation = Quaternion.LerpUnclamped(transform.rotation, Quaternion.Euler(0, 20f, 0), slopeY * Time.deltaTime);
+        }
+        else if (dynamicJoystick.Horizontal < 0)
+        {
+            transform.rotation = Quaternion.LerpUnclamped(transform.rotation, Quaternion.Euler(0, -20f, 0), slopeY * Time.deltaTime);
+        }
+        else
+        {
+            transform.rotation = Quaternion.LerpUnclamped(transform.rotation, Quaternion.Euler(0, 0, 0), slopeY * Time.deltaTime);
         }
     }
 
